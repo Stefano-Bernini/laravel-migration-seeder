@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+        <title>Laravel</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- Fonts -->
+        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    @vite('resources/js/app.js')
+        <!-- Styles -->
+        @vite('resources/js/app.js')
 
-</head>
+    </head>
 
-<body>
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="text-center">Treni in partenza</h1>
-                        <table class="table">
-                            <tr>
-                                <th>Azienda</th>
-                                <th>Codice treno</th>
-                                <th>Treno in orario?</th>
-                            </tr>
-                            @foreach ($trains as $train)
+    <body>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="text-center">Treni in partenza</h1>
+                            <table class="table">
                                 <tr>
-                                    <td>{{ $train->azienda }}</td>
-                                    <td>{{ $train->codice_treno }}</td>
-                                    <td>
-                                        @if ($train->in_orario)
-                                            Si
-                                        @else
-                                            No
-                                        @endif
-                                    </td>
+                                    <th>Azienda</th>
+                                    <th>Codice treno</th>
+                                    <th>Treno in orario?</th>
                                 </tr>
-                            @endforeach
-                        </table>
+                                @foreach ($trains as $train)
+                                    <tr>
+                                        <td>{{ $train->azienda }}</td>
+                                        <td>{{ $train->codice_treno }}</td>
+                                        <td>
+                                            @if ($train->in_orario)
+                                                Si
+                                            @else
+                                                No
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-</body>
+        </main>
+    </body>
 
 </html>
